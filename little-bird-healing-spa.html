@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Bird Healing Spa — Southampton, NY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Cinzel:wght@400;500&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --ink:#0e0c0a;
+  --bone:#f5f0e8;
+  --gold:#c9a96e;
+  --gold-pale:#f0e6d0;
+  --gold-deep:#8c6d3f;
+  --mist:#e8e2d8;
+  --stone:#6b6258;
+  --obsidian:#1a1410;
+  --smoke:#2e2820;
+}
+
+html{scroll-behavior:smooth;}
+body{font-family:'Raleway',sans-serif;background:var(--bone);color:var(--ink);font-weight:300;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(26,20,16,0.95);backdrop-filter:blur(12px);
+  padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:72px;
+  border-bottom:1px solid rgba(201,169,110,0.12);
+}
+.nav-brand{
+  font-family:'Cinzel',serif;font-size:1.1rem;font-weight:400;
+  letter-spacing:0.22em;color:#fff;text-transform:uppercase;
+}
+.nav-brand span{color:var(--gold);}
+.nav-links{display:flex;gap:2.8rem;list-style:none;}
+.nav-links a{
+  font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:rgba(255,255,255,0.45);font-weight:400;transition:color .25s;
+}
+.nav-links a:hover{color:var(--gold);}
+.nav-book{
+  background:transparent;border:1px solid var(--gold);color:var(--gold);
+  padding:0.55rem 1.6rem;font-family:'Raleway',sans-serif;font-size:0.62rem;
+  letter-spacing:0.25em;text-transform:uppercase;font-weight:400;cursor:pointer;
+  transition:all .25s;
+}
+.nav-book:hover{background:var(--gold);color:var(--obsidian);}
+
+/* ── HERO ── */
+.hero{
+  background:var(--obsidian);
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 520px;
+  padding-top:72px;
+  position:relative;overflow:hidden;
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:7rem 4rem 7rem 3.5rem;position:relative;z-index:2;
+}
+.hero-pre{
+  font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:2rem;font-weight:400;
+  display:flex;align-items:center;gap:1rem;
+}
+.hero-pre::before{content:'';width:36px;height:1px;background:var(--gold);display:block;}
+.hero-h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3.2rem,5.5vw,5.5rem);
+  font-weight:400;line-height:1.08;
+  color:#fff;margin-bottom:1.25rem;
+}
+.hero-h1 em{font-style:italic;color:var(--gold);}
+.hero-sub{
+  font-size:0.85rem;color:rgba(255,255,255,0.42);
+  line-height:2;max-width:400px;margin-bottom:3rem;
+  letter-spacing:0.04em;font-weight:300;
+}
+.hero-actions{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;}
+.btn-gold{
+  background:var(--gold);color:var(--obsidian);
+  padding:1rem 2.4rem;font-family:'Raleway',sans-serif;
+  font-size:0.63rem;letter-spacing:0.28em;text-transform:uppercase;
+  font-weight:500;border:none;cursor:pointer;transition:background .25s;display:inline-block;
+}
+.btn-gold:hover{background:#d4b97e;}
+.btn-ghost{
+  color:rgba(255,255,255,0.5);font-size:0.63rem;letter-spacing:0.25em;
+  text-transform:uppercase;font-weight:300;padding:1rem 1.5rem;
+  border:1px solid rgba(255,255,255,0.18);background:transparent;cursor:pointer;
+  transition:all .25s;display:inline-block;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.45);color:rgba(255,255,255,0.8);}
+
+.hero-right{
+  display:flex;align-items:center;justify-content:center;
+  padding:4rem 3rem;position:relative;
+}
+.hero-ring-outer{
+  width:380px;height:380px;border:1px solid rgba(201,169,110,0.25);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  animation:slowspin 30s linear infinite;
+}
+.hero-ring-inner{
+  width:290px;height:290px;border:1px solid rgba(201,169,110,0.15);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  animation:slowspin 20s linear infinite reverse;
+}
+.hero-logo-circle{
+  width:200px;height:200px;border:1px solid rgba(201,169,110,0.4);border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  animation:slowspin 30s linear infinite reverse;
+}
+.hero-logo-bird{font-size:3rem;margin-bottom:0.25rem;}
+.hero-logo-text{
+  font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.3em;
+  color:var(--gold);text-transform:uppercase;
+}
+@keyframes slowspin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+
+.hero-stat{
+  position:absolute;bottom:3rem;left:3.5rem;
+  display:flex;gap:3rem;
+}
+.hero-stat-item .num{
+  font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;
+  color:#fff;display:block;
+}
+.hero-stat-item .lbl{
+  font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);margin-top:0.2rem;display:block;
+}
+
+/* ── TAPE ── */
+.tape{
+  background:var(--gold);padding:1rem 3rem;
+  display:flex;justify-content:center;align-items:center;
+  gap:3rem;overflow:hidden;flex-wrap:wrap;
+}
+.tape-item{
+  font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--obsidian);font-weight:500;white-space:nowrap;
+}
+.tape-dot{width:3px;height:3px;border-radius:50%;background:var(--obsidian);opacity:0.35;flex-shrink:0;}
+
+/* ── INTRO ── */
+.intro{
+  background:var(--bone);
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:600px;
+}
+.intro-visual{
+  background:var(--smoke);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;min-height:500px;
+}
+.intro-geo{
+  width:260px;height:260px;
+  border:1px solid rgba(201,169,110,0.2);
+  position:absolute;transform:rotate(45deg);
+}
+.intro-geo-2{
+  width:180px;height:180px;
+  border:1px solid rgba(201,169,110,0.12);
+  position:absolute;transform:rotate(22deg);
+}
+.intro-center-text{
+  font-family:'Playfair Display',serif;
+  font-size:5.5rem;color:rgba(201,169,110,0.12);
+  font-style:italic;position:relative;z-index:1;user-select:none;
+}
+.intro-year{
+  position:absolute;bottom:2.5rem;right:2.5rem;
+  font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:rgba(255,255,255,0.2);
+}
+.intro-text{
+  padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;
+}
+.section-eyebrow{
+  font-size:0.58rem;letter-spacing:0.35em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.5rem;font-weight:400;
+  display:flex;align-items:center;gap:0.75rem;
+}
+.section-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3.5vw,3rem);font-weight:400;
+  color:var(--ink);line-height:1.2;margin-bottom:1.5rem;
+}
+.section-title em{font-style:italic;color:var(--gold-deep);}
+.section-body{
+  font-size:0.88rem;color:var(--stone);line-height:2;
+  margin-bottom:1.5rem;font-weight:300;
+}
+.divider-line{width:48px;height:1px;background:var(--gold);margin-bottom:2rem;}
+
+/* ── SERVICES ── */
+.services{background:var(--smoke);padding:6rem 3rem;}
+.services-header{text-align:center;max-width:560px;margin:0 auto 4rem;}
+.services-header .section-title{color:#fff;}
+.services-header .section-body{color:rgba(255,255,255,0.35);}
+.services-header .section-eyebrow{justify-content:center;}
+.services-header .section-eyebrow::before{display:none;}
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(201,169,110,0.12);
+}
+.service-card{
+  background:var(--smoke);padding:2.5rem 2rem;
+  transition:background .3s;cursor:default;
+}
+.service-card:hover{background:#261f18;}
+.service-number{
+  font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.2em;
+  color:var(--gold);margin-bottom:1.5rem;opacity:0.6;
+}
+.service-name{
+  font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:400;
+  color:#fff;margin-bottom:0.75rem;
+}
+.service-desc{
+  font-size:0.78rem;color:rgba(255,255,255,0.3);line-height:1.9;font-weight:300;
+}
+.service-line{width:28px;height:1px;background:var(--gold);margin-bottom:1.25rem;opacity:0.5;}
+
+/* ── RITUAL ── */
+.ritual{background:var(--bone);padding:7rem 3rem;}
+.ritual-inner{
+  max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+}
+.ritual-quote{
+  position:relative;padding:2rem 0 2rem 2.5rem;
+  border-left:1px solid var(--gold);
+}
+.ritual-quote-text{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.5rem;color:var(--ink);line-height:1.6;margin-bottom:1rem;
+}
+.ritual-quote-attr{
+  font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);
+}
+.ritual-list{list-style:none;margin-top:2rem;}
+.ritual-list li{
+  display:flex;align-items:flex-start;gap:1rem;
+  padding:1rem 0;border-bottom:1px solid var(--mist);
+  font-size:0.82rem;color:var(--stone);line-height:1.8;font-weight:300;
+}
+.ritual-list li::before{
+  content:'—';color:var(--gold);font-size:0.75rem;flex-shrink:0;margin-top:0.2rem;
+}
+
+/* ── REVIEWS ── */
+.reviews{background:var(--obsidian);padding:6rem 3rem;}
+.reviews-header{text-align:center;margin-bottom:4rem;}
+.reviews-header .section-title{color:#fff;}
+.reviews-header .section-eyebrow{justify-content:center;}
+.reviews-header .section-eyebrow::before{display:none;}
+.reviews-stars{
+  display:flex;justify-content:center;gap:4px;margin-bottom:0.5rem;
+  font-size:0.75rem;color:var(--gold);letter-spacing:0.1em;
+}
+.reviews-count{
+  font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.2);margin-bottom:2rem;display:block;
+}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.04);}
+.review-card{background:var(--obsidian);padding:2.5rem 2rem;}
+.review-quote{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1rem;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:1.5rem;
+}
+.review-footer{display:flex;align-items:center;gap:0.75rem;}
+.review-avatar{
+  width:28px;height:28px;border-radius:50%;background:rgba(201,169,110,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.6rem;color:var(--gold);font-weight:500;flex-shrink:0;
+}
+.review-name{
+  font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:rgba(255,255,255,0.25);
+}
+.review-stars-sm{color:var(--gold);font-size:0.6rem;}
+
+/* ── CTA ── */
+.cta-strip{background:var(--gold);padding:5rem 3rem;text-align:center;}
+.cta-strip .section-eyebrow{justify-content:center;color:var(--obsidian);opacity:0.5;margin-bottom:1rem;}
+.cta-strip .section-eyebrow::before{display:none;}
+.cta-title{
+  font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);
+  font-weight:400;color:var(--obsidian);margin-bottom:1rem;line-height:1.1;
+}
+.cta-title em{font-style:italic;}
+.cta-sub{
+  font-size:0.82rem;color:rgba(14,12,10,0.5);margin-bottom:2.5rem;
+  line-height:1.9;max-width:440px;margin-left:auto;margin-right:auto;
+}
+.cta-details{display:flex;justify-content:center;flex-wrap:wrap;gap:3rem;margin-bottom:3rem;}
+.cta-detail-item{
+  font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(14,12,10,0.4);
+}
+.cta-detail-item span{
+  display:block;color:var(--obsidian);font-size:0.78rem;margin-top:0.3rem;
+  letter-spacing:0.08em;font-weight:400;
+}
+.btn-dark{
+  background:var(--obsidian);color:var(--gold);
+  padding:1.1rem 3rem;font-family:'Raleway',sans-serif;
+  font-size:0.63rem;letter-spacing:0.3em;text-transform:uppercase;
+  font-weight:500;border:none;cursor:pointer;transition:background .25s;display:inline-block;
+}
+.btn-dark:hover{background:var(--smoke);}
+
+/* ── FOOTER ── */
+footer{
+  background:#0a0806;padding:2.5rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.footer-brand{
+  font-family:'Cinzel',serif;font-size:0.85rem;letter-spacing:0.2em;
+  color:rgba(255,255,255,0.2);text-transform:uppercase;
+}
+.footer-brand span{color:var(--gold);}
+.footer-links{display:flex;gap:2rem;}
+.footer-links a{
+  font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(255,255,255,0.18);transition:color .2s;
+}
+.footer-links a:hover{color:var(--gold);}
+.footer-copy{font-size:0.58rem;color:rgba(255,255,255,0.12);letter-spacing:0.08em;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 1.5rem;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-right{display:none;}
+  .hero-left{padding:5rem 1.5rem 4rem;}
+  .hero-stat{position:static;margin-top:3rem;flex-wrap:wrap;gap:2rem;}
+  .tape{gap:1.5rem;padding:1rem 1.5rem;}
+  .intro{grid-template-columns:1fr;}
+  .intro-visual{display:none;}
+  .intro-text{padding:4rem 1.5rem;}
+  .services{padding:4rem 1.5rem;}
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .ritual{padding:5rem 1.5rem;}
+  .ritual-inner{grid-template-columns:1fr;gap:3rem;}
+  .reviews{padding:4rem 1.5rem;}
+  .reviews-grid{grid-template-columns:1fr;}
+  .cta-strip{padding:4rem 1.5rem;}
+  footer{padding:2rem 1.5rem;flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr;}
+  .hero-actions{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand"><span>Little</span> Bird</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#ritual">Philosophy</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Visit</a></li>
+  </ul>
+  <a class="nav-book" href="tel:6312871118">Reserve</a>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-left">
+    <p class="hero-pre">Southampton, New York &nbsp;·&nbsp; Est. 2007</p>
+    <h1 class="hero-h1">
+      Where Skin<br>
+      Meets <em>Soul</em>
+    </h1>
+    <p class="hero-sub">
+      Expert facials. Reflexology. Waxing. Spa rituals.<br>
+      A private sanctuary in the heart of the Hamptons —<br>
+      trusted by locals since 2007.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-gold" href="tel:6312871118">Book Your Treatment</a>
+      <a class="btn-ghost" href="#services">Explore Services</a>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-item"><span class="num">4.4★</span><span class="lbl">Google Rating</span></div>
+      <div class="hero-stat-item"><span class="num">17+</span><span class="lbl">Years of Care</span></div>
+      <div class="hero-stat-item"><span class="num">6</span><span class="lbl">Signature Rituals</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-ring-outer">
+      <div class="hero-ring-inner">
+        <div class="hero-logo-circle">
+          <div class="hero-logo-bird" aria-hidden="true">🕊</div>
+          <div class="hero-logo-text">Little Bird</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tape">
+  <span class="tape-item">Facials</span>
+  <span class="tape-dot"></span>
+  <span class="tape-item">Reflexology</span>
+  <span class="tape-dot"></span>
+  <span class="tape-item">Body Scrubs</span>
+  <span class="tape-dot"></span>
+  <span class="tape-item">Waxing</span>
+  <span class="tape-dot"></span>
+  <span class="tape-item">Spa Pedicures</span>
+  <span class="tape-dot"></span>
+  <span class="tape-item">Healing Massage</span>
+  <span class="tape-dot"></span>
+  <span class="tape-item">Open Year Round</span>
+</div>
+
+<section class="intro" id="about">
+  <div class="intro-visual">
+    <div class="intro-geo"></div>
+    <div class="intro-geo-2"></div>
+    <div class="intro-center-text" aria-hidden="true">Heal</div>
+    <div class="intro-year">Est. 2007</div>
+  </div>
+  <div class="intro-text">
+    <p class="section-eyebrow">Our Story</p>
+    <h2 class="section-title">More Than a Spa.<br>A <em>Healing Space.</em></h2>
+    <div class="divider-line"></div>
+    <p class="section-body">
+      Little Bird has been a quiet sanctuary in Southampton for nearly two decades. We blend Eastern and Western healing traditions — from Chinese galvanic facials and foot reflexology to nourishing body rituals — always delivered with gentle, expert hands.
+    </p>
+    <p class="section-body">
+      Our clients don't just leave looking better. They leave feeling restored.
+    </p>
+    <a class="btn-gold" href="#services">Discover Our Rituals</a>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-header">
+    <p class="section-eyebrow">Signature Rituals</p>
+    <h2 class="section-title">Crafted for <em style="color:var(--gold);">Your</em> Wellbeing</h2>
+    <p class="section-body">Each treatment is a moment to exhale — rooted in technique, guided by care.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-number">01</div>
+      <div class="service-line"></div>
+      <h3 class="service-name">Chinese Facials</h3>
+      <p class="service-desc">Time-honored techniques that lift, firm, and deeply nourish — leaving skin visibly radiant from within.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-number">02</div>
+      <div class="service-line"></div>
+      <h3 class="service-name">Galvanic Spa Facials</h3>
+      <p class="service-desc">Advanced current therapy that drives nutrients deep into the skin for long-lasting luminosity and tone.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-number">03</div>
+      <div class="service-line"></div>
+      <h3 class="service-name">Foot Reflexology</h3>
+      <p class="service-desc">Ancient pressure-point healing that releases tension and restores balance throughout the entire body.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-number">04</div>
+      <div class="service-line"></div>
+      <h3 class="service-name">Body Scrub &amp; Exfoliation</h3>
+      <p class="service-desc">Silken exfoliation rituals that slough, soften, and re-awaken the skin from head to toe.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-number">05</div>
+      <div class="service-line"></div>
+      <h3 class="service-name">Spa Pedicures</h3>
+      <p class="service-desc">Indulgent foot care blending therapeutic soaks, expert massage, and finishing treatments.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-number">06</div>
+      <div class="service-line"></div>
+      <h3 class="service-name">Waxing Services</h3>
+      <p class="service-desc">Clean, precise, and swift — professional waxing in a calm and comfortable private setting.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ritual" id="ritual">
+  <div class="ritual-inner">
+    <div class="ritual-quote">
+      <p class="ritual-quote-text">"Very thorough, with healing hands. I left feeling like a completely different person."</p>
+      <p class="ritual-quote-attr">— Google Review</p>
+    </div>
+    <div class="ritual-right">
+      <p class="section-eyebrow">Our Philosophy</p>
+      <h2 class="section-title">The <em>Little Bird</em> Difference</h2>
+      <ul class="ritual-list">
+        <li>Healing traditions from East and West, combined with modern technique</li>
+        <li>Every touch is intentional — gentle, skilled, and deeply personal</li>
+        <li>A true escape from the Hamptons bustle, open year-round</li>
+        <li>Practitioners with years of dedicated, hands-on experience</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="reviews-header">
+    <div class="reviews-stars" aria-label="4.4 out of 5 stars">★ ★ ★ ★ ★</div>
+    <span class="reviews-count">4.4 · 31 Google Reviews</span>
+    <p class="section-eyebrow">What Clients Say</p>
+    <h2 class="section-title">Words That <em style="color:var(--gold);">Move Us</em></h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <p class="review-quote">"Had the best facial here — gentle, relaxing and made my skin feel absolutely great."</p>
+      <div class="review-footer">
+        <div class="review-avatar" aria-hidden="true">G</div>
+        <div><div class="review-stars-sm">★★★★★</div><div class="review-name">Google Review</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <p class="review-quote">"I highly recommend this place for the foot massage. Very thorough, with healing hands."</p>
+      <div class="review-footer">
+        <div class="review-avatar" aria-hidden="true">G</div>
+        <div><div class="review-stars-sm">★★★★★</div><div class="review-name">Google Review</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <p class="review-quote">"The kind of place you find once and return to forever. Calm, caring, and wonderfully skilled."</p>
+      <div class="review-footer">
+        <div class="review-avatar" aria-hidden="true">Y</div>
+        <div><div class="review-stars-sm">★★★★★</div><div class="review-name">Yelp Review</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip" id="contact">
+  <p class="section-eyebrow">Ready to Restore?</p>
+  <h2 class="cta-title">Your <em>Ritual</em> Awaits</h2>
+  <p class="cta-sub">Call to reserve your appointment, or simply walk in. We welcome you with open arms — year round.</p>
+  <div class="cta-details">
+    <div class="cta-detail-item">Address<span>16 Hill St #3, Southampton, NY</span></div>
+    <div class="cta-detail-item">Hours<span>Mon – Sat · 10:00 AM – 7:00 PM</span></div>
+    <div class="cta-detail-item">Reservations<span>(631) 287-1118</span></div>
+  </div>
+  <a class="btn-dark" href="tel:6312871118">Call to Book &rarr;</a>
+</section>
+
+<footer>
+  <div class="footer-brand"><span>Little</span> Bird Healing Spa</div>
+  <div class="footer-links">
+    <a href="tel:6312871118">(631) 287-1118</a>
+    <a href="https://www.facebook.com/littlebirdhealingspa/" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.yelp.com/biz/little-bird-healing-spa-southampton" target="_blank" rel="noopener">Yelp</a>
+  </div>
+  <div class="footer-copy">&copy; 2025 Little Bird Healing Spa &nbsp;·&nbsp; Southampton, NY</div>
+</footer>
+
+</body>
+</html>
